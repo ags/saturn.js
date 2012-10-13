@@ -7,6 +7,10 @@
     distance: 0,
     period: 1.0,
     color: 0xff0000
+    ring: {
+      inner_radius: 74510
+      outer_radius: 140390
+    }
   }
 
   {

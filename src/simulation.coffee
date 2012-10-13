@@ -31,16 +31,17 @@ class Simulation
     document.body.appendChild( renderer.domElement )
 
   initGeometry: ->
-    for name, body of celestial_bodies
-      scene.add(body.mesh)
+    for body in celestial_bodies
+      body.addToScene(scene)
 
   initBodies: (celestial_properties) ->
     for properties in celestial_properties
       celestial_bodies.push(new CelestialBody(
-        properties["radius"],
+        properties["radius"]
         properties["distance"]
         properties["period"]
         properties["color"]
+        properties["ring"]
       ))
 
   animate: (time) =>
