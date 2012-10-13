@@ -1,7 +1,12 @@
 class @CelestialBody
   geometry = material = @mesh = rotation = null
 
-  constructor: (@radius, @distance, @period, @color, ring) ->
+  constructor: (properties) ->
+    @radius = properties["radius"]
+    @distance = properties["distance"]
+    @period = properties["period"]
+    @color = properties["color"]
+    ring = properties["ring"]
     geometry = new THREE.SphereGeometry(@radius, 32, 16)
 
     if ring

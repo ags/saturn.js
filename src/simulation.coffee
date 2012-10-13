@@ -36,13 +36,7 @@ class Simulation
 
   initBodies: (celestial_properties) ->
     for properties in celestial_properties
-      celestial_bodies.push(new CelestialBody(
-        properties["radius"]
-        properties["distance"]
-        properties["period"]
-        properties["color"]
-        properties["ring"]
-      ))
+      celestial_bodies.push(new CelestialBody(properties))
 
   animate: (time) =>
     requestAnimationFrame(@animate)
@@ -64,7 +58,6 @@ class Simulation
 
   focusOnNextBody: ->
     current_body = (current_body + 1) % celestial_bodies.length
-    console.log current_body
     zoom_body = if current_body == SATURN_INDEX then SATURN_INDEX else TITAN_INDEX
     camera.position.x = celestial_bodies[current_body].mesh.position.x
     camera.position.z = celestial_bodies[zoom_body].radius * 4
