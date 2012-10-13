@@ -38,18 +38,20 @@ class Simulation
       celestial_bodies.push(new CelestialBody(
         properties["radius"],
         properties["distance"]
+        properties["period"]
         properties["color"]
       ))
 
-  animate: =>
-    # note: three.js includes requestAnimationFrame shim
-    requestAnimationFrame( @animate )
+  animate: (time) =>
+    requestAnimationFrame(@animate)
+
+    for body in celestial_bodies
+      body.animate(time)
+
     @render()
 
   render: =>
-    celestial_bodies[0].animate()
-
-    renderer.render( scene, camera )
+    renderer.render(scene, camera)
 
   onKeyDown: (event) =>
     switch event.keyCode
@@ -65,4 +67,4 @@ class Simulation
     camera.position.x = celestial_bodies[current_body].mesh.position.x
     camera.position.z = celestial_bodies[zoom_body].radius * 4
 
-(new Simulation).animate()
+(new Simulation).animate(new Date().getTime())
