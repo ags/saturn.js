@@ -17,6 +17,7 @@ class Simulation
 
     camera = new THREE.PerspectiveCamera(FOV, ASPECT, CLIP_NEAR, CLIP_FAR)
     camera.position.z = celestial_bodies[SATURN_INDEX].radius * 4
+    camera.position.y = 30000
 
     scene = new THREE.Scene()
 
