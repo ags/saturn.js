@@ -5,12 +5,11 @@ class Simulation
 
   FOV = 65
   ASPECT = window.innerWidth / window.innerHeight
-  CLIP_FAR = 3560000 * 2.1
-  #CLIP_FAR = celestial_properties["iapetus"]["distance"] * 2.1
+  CLIP_FAR = 3560000 * 2.1 # iapetus distance
   CLIP_NEAR = CLIP_FAR / 1000000.0
 
   SATURN_INDEX = 0
-  TITAN_INDEX = 2
+  TITAN_INDEX = 5
 
   constructor: ->
     @initBodies(celestial_properties)
@@ -21,34 +20,38 @@ class Simulation
 
     scene = new THREE.Scene()
 
-    directionalLight = new THREE.DirectionalLight( 0xffffff, 0.5 )
-    directionalLight.position.set( 1, 0, 1 )
-    scene.add( directionalLight )
-
-    light = new THREE.AmbientLight( 0x333333 )
-    scene.add( light )
+    @initLights()
 
     @initGeometry()
 
-    renderer = new THREE.WebGLRenderer()
-    renderer.setSize(window.innerWidth, window.innerHeight)
-
-    stats = new Stats()
-    stats.domElement.style.position = 'absolute'
-    stats.domElement.style.top = '0px'
-    document.body.appendChild(stats.domElement)
-
     document.addEventListener("keydown", @onKeyDown, false)
 
+    renderer = new THREE.WebGLRenderer()
+    renderer.setSize(window.innerWidth, window.innerHeight)
     document.body.appendChild(renderer.domElement)
+
+    @initStats()
+
+  initBodies: (celestial_properties) ->
+    for properties in celestial_properties
+      celestial_bodies.push(new CelestialBody(properties))
+
+  initLights: ->
+    directionalLight = new THREE.DirectionalLight( 0xffffff, 0.5 )
+    directionalLight.position.set( 1, 0, 1 )
+    scene.add(directionalLight)
+
+    scene.add(new THREE.AmbientLight( 0x333333 ))
 
   initGeometry: ->
     for body in celestial_bodies
       body.addToScene(scene)
 
-  initBodies: (celestial_properties) ->
-    for properties in celestial_properties
-      celestial_bodies.push(new CelestialBody(properties))
+  initStats: ->
+    stats = new Stats()
+    stats.domElement.style.position = 'absolute'
+    stats.domElement.style.top = '0px'
+    document.body.appendChild(stats.domElement)
 
   animate: (time) =>
     requestAnimationFrame(@animate)
