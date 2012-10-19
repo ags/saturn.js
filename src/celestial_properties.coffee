@@ -16,7 +16,7 @@
     radius: 1500,
     period: 0.94,
     distance: 185000,
-    color: 0x00ff00,
+    color: 0xd3d3d3,
     incline: 0
   },
   {
@@ -25,6 +25,7 @@
     distance: 238000,
     period: 1.37,
     incline: 0,
+    color: 0xd3d3d3,
   },
   {
     name: "tethys",
@@ -32,6 +33,7 @@
     distance: 295000,
     incline: 0,
     period: 1.88
+    color: 0xd3d3d3,
   },
   {
     name: "rhea",
@@ -39,6 +41,7 @@
     distance: 527000,
     incline: 0,
     period: 4.51
+    color: 0xd3d3d3,
   },
   {
     name: "titan",
@@ -46,7 +49,7 @@
     distance: 1222000,
     incline: 0,
     period: 15.94,
-    color: 0x0000ff
+    color: 0xff9b00
   },
   {
     name: "iapetus",
@@ -54,6 +57,6 @@
     distance: 3560000,
     incline: 8,
     period: 79.33,
-    color: 0xffff00
+    color: 0xd3d3d3,
   }
 ]

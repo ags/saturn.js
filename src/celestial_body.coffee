@@ -18,7 +18,7 @@ class @CelestialBody
         overdraw: true
       )
     else
-      material = new THREE.MeshLambertMaterial({ color: @color, wireframe: true })
+      material = new THREE.MeshLambertMaterial({ color: @color, wireframe: false })
 
     @mesh = new THREE.Mesh( geometry, material )
     @mesh.position.x = @distance
