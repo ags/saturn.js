@@ -21,6 +21,13 @@ class Simulation
 
     scene = new THREE.Scene()
 
+    directionalLight = new THREE.DirectionalLight( 0xffffff, 0.5 )
+    directionalLight.position.set( 1, 0, 1 )
+    scene.add( directionalLight )
+
+    light = new THREE.AmbientLight( 0x333333 )
+    scene.add( light )
+
     @initGeometry()
 
     renderer = new THREE.CanvasRenderer()
@@ -29,11 +36,11 @@ class Simulation
     stats = new Stats()
     stats.domElement.style.position = 'absolute'
     stats.domElement.style.top = '0px'
-    document.body.appendChild( stats.domElement )
+    document.body.appendChild(stats.domElement)
 
     document.addEventListener("keydown", @onKeyDown, false)
 
-    document.body.appendChild( renderer.domElement )
+    document.body.appendChild(renderer.domElement)
 
   initGeometry: ->
     for body in celestial_bodies
