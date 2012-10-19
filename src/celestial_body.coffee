@@ -1,6 +1,7 @@
 class @CelestialBody
   geometry = material = @mesh = null
   rotation = 0
+  rotation_speed = 10.5 / 100
 
   constructor: (properties) ->
     @radius = properties["radius"]
@@ -31,7 +32,6 @@ class @CelestialBody
       @ring.addToScene(scene)
 
   animate: ->
-    rotation_speed = 10.5 / 100
     rotation += rotation_speed / @period
 
     rotation -= 360.0 if rotation >= 360.0
