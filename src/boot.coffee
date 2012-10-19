@@ -5,6 +5,7 @@ vendors = [
 
 classes = [
   "celestial_properties"
+  "annulus"
   "ring"
   "celestial_body"
 ]
