@@ -8,7 +8,7 @@ class @CelestialBody
     @period = properties["period"]
     @color = properties["color"]
     ring = properties["ring"]
-    geometry = new THREE.SphereGeometry(@radius, 16, 16)
+    geometry = new THREE.SphereGeometry(@radius, 32, 32)
 
     if ring
       material = new THREE.MeshLambertMaterial(
