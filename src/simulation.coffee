@@ -59,6 +59,11 @@ class Simulation
     for body in celestial_bodies
       body.animate(time)
 
+    if current_body != SATURN_INDEX
+      t = celestial_bodies[current_body].rotation * (Math.PI / 180.0)
+      camera.position.x = celestial_bodies[current_body].distance * Math.cos(t)
+      camera.position.z = -(celestial_bodies[current_body].distance * Math.sin(t))
+
     @render()
 
   render: =>
@@ -74,8 +79,5 @@ class Simulation
 
   focusOnNextBody: ->
     current_body = (current_body + 1) % celestial_bodies.length
-    zoom_body = if current_body == SATURN_INDEX then SATURN_INDEX else TITAN_INDEX
-    camera.position.x = celestial_bodies[current_body].mesh.position.x
-    camera.position.z = celestial_bodies[zoom_body].radius * 4
 
 (new Simulation).animate(new Date().getTime())
