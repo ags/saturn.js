@@ -1,5 +1,6 @@
 vendors = [
   "vendor/three.min"
+  "vendor/stats.min"
 ]
 
 classes = [

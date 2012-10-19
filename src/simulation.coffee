@@ -1,5 +1,5 @@
 class Simulation
-  camera = scene = renderer = null
+  camera = scene = renderer = stats = null
   celestial_bodies = []
   current_body = 0
 
@@ -24,7 +24,12 @@ class Simulation
     @initGeometry()
 
     renderer = new THREE.CanvasRenderer()
-    renderer.setSize( window.innerWidth, window.innerHeight )
+    renderer.setSize(window.innerWidth, window.innerHeight)
+
+    stats = new Stats()
+    stats.domElement.style.position = 'absolute'
+    stats.domElement.style.top = '0px'
+    document.body.appendChild( stats.domElement )
 
     document.addEventListener("keydown", @onKeyDown, false)
 
@@ -48,6 +53,7 @@ class Simulation
 
   render: =>
     renderer.render(scene, camera)
+    stats.update()
 
   onKeyDown: (event) =>
     switch event.keyCode
