@@ -7,7 +7,7 @@ class Simulation
   ASPECT = window.innerWidth / window.innerHeight
   CLIP_FAR = 3560000 * 2.1
   #CLIP_FAR = celestial_properties["iapetus"]["distance"] * 2.1
-  CLIP_NEAR = CLIP_FAR / 10000.0
+  CLIP_NEAR = CLIP_FAR / 1000000.0
 
   SATURN_INDEX = 0
   TITAN_INDEX = 2
@@ -16,8 +16,8 @@ class Simulation
     @initBodies(celestial_properties)
 
     camera = new THREE.PerspectiveCamera(FOV, ASPECT, CLIP_NEAR, CLIP_FAR)
-    camera.position.z = celestial_bodies[SATURN_INDEX].radius * 4
-    camera.position.y = 30000
+    camera.position.z = celestial_bodies[SATURN_INDEX].radius * 4.5
+    camera.position.y = 45000
 
     scene = new THREE.Scene()
 
