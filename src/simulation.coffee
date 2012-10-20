@@ -1,5 +1,5 @@
 class Simulation
-  camera = scene = renderer = stats = null
+  camera = scene = renderer = stats = controls = null
   celestial_bodies = []
   current_body = 0
 
@@ -17,6 +17,10 @@ class Simulation
     camera = new THREE.PerspectiveCamera(FOV, ASPECT, CLIP_NEAR, CLIP_FAR)
     camera.position.z = celestial_bodies[SATURN_INDEX].radius * 5
     camera.position.y = 45000
+
+    controls = new THREE.TrackballControls( camera )
+    controls.target.set( 0, 0, 0 )
+    controls.zoomSpeed = 0.2;
 
     scene = new THREE.Scene()
 
@@ -67,6 +71,7 @@ class Simulation
     @render()
 
   render: =>
+    controls.update()
     renderer.render(scene, camera)
     stats.update()
 
