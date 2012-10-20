@@ -20,7 +20,7 @@ class Simulation
 
     controls = new THREE.TrackballControls( camera )
     controls.target.set( 0, 0, 0 )
-    controls.zoomSpeed = 0.2;
+    controls.zoomSpeed = 0.2
 
     scene = new THREE.Scene()
 

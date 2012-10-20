@@ -34,6 +34,7 @@ class @Annulus extends THREE.Geometry
       vertices.push( verticesRow )
       uvs.push( uvsRow )
 
+    radius = @outer_radius
     for y in [0..segmentsY-1]
       for x in [0..segmentsX-1]
         v1 = vertices[ y ][ x + 1 ]
@@ -51,7 +52,6 @@ class @Annulus extends THREE.Geometry
         uv3 = uvs[ y + 1 ][ x ].clone()
         uv4 = uvs[ y + 1 ][ x + 1 ].clone()
 
-        radius = @outer_radius
         if Math.abs( @vertices[ v1 ].y ) == radius
           @faces.push( new THREE.Face3( v1, v3, v4, [ n1, n3, n4 ] ) )
           @faceVertexUvs[ 0 ].push( [ uv1, uv3, uv4 ] )
