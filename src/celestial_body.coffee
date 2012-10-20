@@ -14,7 +14,6 @@ class @CelestialBody
       material = new THREE.MeshLambertMaterial(
         map: THREE.ImageUtils.loadTexture("textures/saturn.jpg")
         wirefame: false,
-        overdraw: true
       )
     else
       material = new THREE.MeshLambertMaterial({ color: @color, wireframe: false })
