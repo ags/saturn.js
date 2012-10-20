@@ -8,6 +8,7 @@ class @Ring
     material = new THREE.MeshLambertMaterial(
       map: THREE.ImageUtils.loadTexture("textures/ring.png"),
       wirefame: false,
+      side: THREE.DoubleSide
     )
 
     @mesh = new THREE.Mesh( geometry, material )
