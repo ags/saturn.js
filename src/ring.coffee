@@ -13,7 +13,7 @@ class @Ring
 
     @mesh = new THREE.Mesh( geometry, material )
     @mesh.position.x = @body.mesh.position.x
-    @mesh.rotation.x = 30
+    @mesh.rotation.x = 270 * Math.PI / 180
 
   addToScene: (scene) ->
     scene.add(@mesh)
