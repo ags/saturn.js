@@ -5,11 +5,10 @@ class Simulation
 
   FOV = 65
   ASPECT = window.innerWidth / window.innerHeight
-  CLIP_FAR = 3560000 * 2.1 # iapetus distance
-  CLIP_NEAR = CLIP_FAR / 1000000.0
+  CLIP_FAR = 3560000 * 2.0 # double iapetus distance
+  CLIP_NEAR = CLIP_FAR / 100000.0
 
   SATURN_INDEX = 0
-  TITAN_INDEX = 5
 
   constructor: ->
     @initBodies(celestial_properties)
