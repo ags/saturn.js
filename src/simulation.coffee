@@ -39,7 +39,7 @@ class Simulation
   initStars: ->
     starsGeometry = new THREE.Geometry()
 
-    for i in [0..1500]
+    for i in [0..500]
       vertex = new THREE.Vector3()
       vertex.x = Math.random() * 2 - 1
       vertex.y = Math.random() * 2 - 1
