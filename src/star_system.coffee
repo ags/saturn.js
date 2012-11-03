@@ -5,7 +5,7 @@ class @StarSystem
   constructor: (multiplier) ->
     geometry = new THREE.Geometry()
 
-    for i in [0..500]
+    for i in [0..600]
       vertex = new THREE.Vector3()
       vertex.x = Math.random() * 2 - 1
       vertex.y = Math.random() * 2 - 1
