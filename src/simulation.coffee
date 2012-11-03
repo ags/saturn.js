@@ -47,7 +47,7 @@ class Simulation
     scene.add(new THREE.AmbientLight( 0x333333 ))
 
   initGeometry: ->
-    new StarSystem(celestial_bodies[SATURN_INDEX].radius).addToScene(scene)
+    new StarSystem(celestial_bodies[SATURN_INDEX].radius / 2).addToScene(scene)
     for body in celestial_bodies
       body.addToScene(scene)
 
